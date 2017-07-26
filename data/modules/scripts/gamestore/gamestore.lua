@@ -3,91 +3,101 @@ dofile('data/modules/scripts/gamestore/init.lua')
 -- Config
 GameStore.Categories = {
 	{
-		name = "Sale Products",
-		state = GameStore.States.STATE_NEW,
+		name = "New Products",
+		state = GameStore.States.STATE_NONE,
+		icons = {"Category_NewProducts.png"},
 		rookgaard = false,
-		icons = {"New_Products.png"},
 		offers = {
-			{name = "Jackalope", basePrice = 500, price = 375, state = GameStore.States.STATE_SALE, validUntil = 30, thingId = 103, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, icons = {"Product_PremiumTime30.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
+			{name = "Steelbeak", thingId = 34, state = GameStore.States.STATE_NEW, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 870, icons = {"o522.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
+			{name = "Crimson Ray", thingId = 33, state = GameStore.States.STATE_NEW, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 870, icons = {"o521.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
+			{name = "Full Entrepreneur Outfit", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 750, icons = {"f472.png", "f471.png"}},
+			{name = "Entrepreneur Outfit", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 570, icons = {"f47200.png", "f47100.png"}},
+			{name = "Entrepreneur Outfit Addon 1", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f47201.png", "f47101.png"}},
+			{name = "Entrepreneur Outfit Addon 2", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f47202.png", "f47102.png"}},
 		}
 	},
-
+	
 	{
 		name = "Premium Time",
-		state = GameStore.States.STATE_NEW,
+		state = GameStore.States.STATE_NONE,
 		rookgaard = false,
-		icons = {"New_Products.png"},
+		icons = {"PremiumTime.png"},
 		offers = {
-			{name = "30 Days", basePrice = 500, price = 375, state = GameStore.States.STATE_SALE, validUntil = 30, thingId = 30, type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM, icons = {"Product_PremiumTime30.png"}, description = "Premium Account for 30 days."},
-			{name = "60 Days", basePrice = 1000, price = 500, state = GameStore.States.STATE_SALE, validUntil = 30, thingId = 60, type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM, icons = {"Product_PremiumTime60.png"}, description = "Premium Account for 60 days."},
-			{name = "180 Days", basePrice = 1600, price = 800, state = GameStore.States.STATE_SALE, validUntil = 30, thingId = 180, type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM, icons = {"Product_PremiumTime180.png"}, description = "Premium Account for 180 days."}
+			{name = "30 Days", price = 250, state = GameStore.States.STATE_SALE, validUntil = 30, thingId = 30, type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM, icons = {"Product_PremiumTime30.png"}, description = "Premium Account for 30 days."},
+			{name = "90 Days", price = 750, state = GameStore.States.STATE_SALE, validUntil = 30, thingId = 90, type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM, icons = {"Product_PremiumTime90.png"}, description = "Premium Account for 90 days."},
+			{name = "180 Days", price = 1500, state = GameStore.States.STATE_SALE, validUntil = 30, thingId = 180, type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM, icons = {"Product_PremiumTime180.png"}, description = "Premium Account for 180 days."},
+			{name = "360 Days", price = 3000, state = GameStore.States.STATE_SALE, validUntil = 30, thingId = 360, type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM, icons = {"Product_PremiumTime360.png"}, description = "Premium Account for 360 days."},
 		}
 	},
-
+	
 	{
-		name = "New Products",
-		state = GameStore.States.STATE_NEW,
-		icons = {"New_Products.png"},
+		name = "Extra Services",
+		state = GameStore.States.STATE_NONE,
+		icons = {"Category_ExtraServices.png"},
 		rookgaard = false,
 		offers = {
-			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Grove Keeper", thingId = {male=908,female=909}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f909.png", "f908.png"}},
-			{name = "Festive Outfit", thingId = {male=931,female=929}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 40, icons = {"f931.png", "f929.png"}},
-			{name = "Pharaoh", thingId = {male=955,female=956}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f955.png", "f956.png"}},
-
-			-- Mount Example : thingId = mountId
-			{name = "Jackalope", thingId = 103, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 60, icons = {"o905.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
-			{name = "Dreadhare", thingId = 104, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 60, icons = {"o906.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
-			{name = "Wolpertinger", thingId = 105, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 60, icons = {"o907.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
-			{name = "Stone Rhino", thingId = 106, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 60, icons = {"o937.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
-			{name = "Gold Sphinx", thingId = 107, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 60, icons = {"o950.png"}, description = "Here you can purchase the Mount for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
-			{name = "Emerald Sphinx", thingId = 108, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 60, icons = {"o951.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
-			{name = "Shadow Sphinx", thingId = 109, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 60, icons = {"o952.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
+			-- NameChange example
+			{name = "Character Name Change", type = GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE, price = 250, icons = {"Product_CharacterNameChange.png"}},
+			-- Sexchange example
+			{name = "Character Sex Change", type = GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE, price = 120, icons = {"Product_CharacterSexChange.png"}},
+			-- Promotion example
+			--{name = "First Promotion", thingId = 1--[[ed/ms/rp/ek]], type = GameStore.OfferTypes.OFFER_TYPE_PROMOTION, price = 100, icons = {"Product_FirstPromotion.png"}}
 		}
 	},
-
+	
 	{
-		name = "Overcharged items",
-		state = GameStore.States.STATE_NEW,
+		name = "Blessings",
+		state = GameStore.States.STATE_NONE,
+		icons = {"Category_Blessings.png"},
 		rookgaard = false,
-		icons = {"New_Products.png"},
 		offers = {
-			-- Item Example : thingId = itemId
-			{name = "Blade of Carving Overcharged", thingId = 26270, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25192.png"}, description = "Sword Fighting +1, Mana Leech chance +100%, mana leech amount +9%"},
-			{name = "Blade of Mayhem Overcharged", thingId = 26235, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25193.png"}, description = "Sword Fighting +1, Critical Hit chance +10%, critical extra damage +60%"},
-			{name = "Blade of Remedy Overcharged", thingId = 26256, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25191.png"}, description = "Sword Fighting +1, Hit Points Leech chance +100%, hit points leech amount +9%"},
-			{name = "Slayer of Carving Overcharged", thingId = 26277, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25190.png"}, description = "Sword Fighting +1, Mana Leech chance +100%, mana leech amount +9%"},
-			{name = "Slayer of Mayhem Overcharged", thingId = 26238, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18390.png"}, description = "Sword Fighting +1, Critical Hit chance +10%, critical extra damage +60%"},
-			{name = "Slayer of Remedy Overcharged", thingId = 26260, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"8918.png"}, description = "Sword Fighting +1, Hit Points Leech chance +100%, hit points leech amount +9%"},
-			{name = "Axe of Carving Overcharged", thingId = 26284, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Axe Fighting +1, Mana Leech chance +100%, mana leech amount +9%"},
-			{name = "Axe of Mayhem Overcharged", thingId = 26241, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Axe Fighting +1, Critical Hit chance +10%, critical extra damage +60%"},
-			{name = "Axe of Remedy Overcharged", thingId = 26267, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Axe Fighting +1, Hit Points Leech chance +100%, hit points leech amount +9%"},
-			{name = "Chopper of Carving Overcharged", thingId = 26293, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Axe Fighting +1, Mana Leech chance +100%, mana leech amount +9%"},
-			{name = "Chopper of Mayhem Overcharged", thingId = 26244, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Axe Fighting +1, Critical Hit chance +10%, critical extra damage +60%"},
-			{name = "Chopper of Remedy Overcharged", thingId = 26273, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Axe Fighting +1, Hit Points Leech chance +100%, hit points leech amount +9%"},
-			{name = "Hammer of Carving Overcharged", thingId = 26305, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Club Fighting +1, Mana Leech chance +100%, mana leech amount +9%"},
-			{name = "Hammer of Mayhem Overcharged", thingId = 26250, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Club Fighting +1, Critical Hit chance +10%, critical extra damage +60%"},
-			{name = "Hammer of Remedy Overcharged", thingId = 26283, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Club Fighting +1, Hit Points Leech chance +100%, hit points leech amount +9%"},
-			{name = "Mace of Carving Overcharged", thingId = 26300, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Club Fighting +1, Mana Leech chance +100%, mana leech amount +9%"},
-			{name = "Mace of Mayhem Overcharged", thingId = 26247, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Club Fighting +1, Critical Hit chance +10%, critical extra damage +60%"},
-			{name = "Mace of Remedy Overcharged", thingId = 26278, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Club Fighting +1, Hit Points Leech chance +100%, hit points leech amount +9%"},
-			{name = "Rod of Carving Overcharged", thingId = 26317, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Magic Level +1, Mana Leech chance +100%, mana leech amount +9%"},
-			{name = "Rod of Mayhem Overcharged", thingId = 26323, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "	Magic Level +1, Critical Hit chance +10%, critical extra damage +60%"},
-			{name = "Rod of Remedy Overcharged", thingId = 26302, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Magic Level +1, Hit Points Leech chance +100%, hit points leech amount +9%"},
-			{name = "Wand of Carving Overcharged", thingId = 26314, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Magic Level +1, Mana Leech chance +100%, mana leech amount +9%"},
-			{name = "Wand of Mayhem Overcharged", thingId = 26320, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "	Magic Level +1, Critical Hit chance +10%, critical extra damage +60%"},
-			{name = "Wand of Remedy Overcharged", thingId = 26297, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Magic Level +1, Hit Points Leech chance +100%, hit points leech amount +9%"},
-			{name = "Bow of Carving Overcharged", thingId = 26308, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Become rich!"},
-			{name = "Bow of Mayhem Overcharged", thingId = 26254, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Become rich!"},
-			{name = "Bow of Remedy Overcharged", thingId = 26288, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Become rich!"},
-			{name = "Crossbow of Carving Overcharged", thingId = 26311, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Become rich!"},
-			{name = "Crossbow of Mayhem Overcharged", thingId = 26268, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Become rich!"},
-			{name = "Crossbow of Remedy Overcharged", thingId = 26292, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Become rich!"},
+			-- NameChange example
+			{name = "Twist of Fate", thingId = 1, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Blessing_Fate.png"}},
+			{name = "The Wisdom of Solitude", thingId = 2, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Blessing_Solitude.png"}},
+			{name = "The Spark of the Phoenix", thingId = 3, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 20, icons = {"Product_Blessing_Phoenix.png"}},
+			{name = "The Fire of the Suns", thingId = 4, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Blessing_Suns.png"}},
+			{name = "The Spiritual Shielding", thingId = 5, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Blessing_Shielding.png"}},
+			{name = "The Embrace of Tibia", thingId = 6, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Blessing_Tibia.png"}},
+			{name = "The Heart of the Mountain", thingId = 7, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 25, icons = {"Blessing_HotM_Icon.png"}},
+			{name = "Blood of the Mountain", thingId = 8, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 25, icons = {"Blessing_BotM_Icon.png"}},
+			-- Promotion example
+			--{name = "First Promotion", thingId = 1--[[ed/ms/rp/ek]], type = GameStore.OfferTypes.OFFER_TYPE_PROMOTION, price = 100, icons = {"Product_FirstPromotion.png"}}
+		}
+	},
+	
+	{
+		name = "Potions & Kegs",
+		state = GameStore.States.STATE_NONE,
+		rookgaard = false,
+		icons = {"Category_Potions.png"},
+		offers = {
+			{name = "Health Potion", thingId = 7618, count = 125, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 4, icons = {"7618.png"}, description = ""},
+			{name = "Health Potion", thingId = 7618, count = 300, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 10, icons = {"7618.png"}, description = ""},
+			{name = "Strong Health Potion", thingId = 7588, count = 100, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 7, icons = {"7588.png"}, description = ""},
+			{name = "Strong Health Potion", thingId = 7588, count = 300, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 18, icons = {"7588.png"}, description = ""},
+			{name = "Great Health Potion", thingId = 7591, count = 100, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 13, icons = {"7591.png"}, description = ""},
+			{name = "Great Health Potion", thingId = 7591, count = 300, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 34, icons = {"7591.png"}, description = ""},
+			{name = "Ultimate Health Potion", thingId = 8473, count = 100, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 22, icons = {"8473.png"}, description = ""},
+			{name = "Ultimate Health Potion", thingId = 8473, count = 300, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 55, icons = {"8473.png"}, description = ""},
+			{name = "Supreme Health Potion", thingId = 26031, count = 100, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 36, icons = {"26031.png"}, description = ""},
+			{name = "Supreme Health Potion", thingId = 26031, count = 300, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 90, icons = {"26031.png"}, description = ""},
+			{name = "Mana Potion", thingId = 7620, count = 125, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 4, icons = {"7620.png"}, description = ""},
+			{name = "Mana Potion", thingId = 7620, count = 300, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 10, icons = {"7620.png"}, description = ""},
+			{name = "health Potion Keg", thingId = 28577, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 23, icons = {"28577.png"}, description = ""},
 			
-		
 		}
 	},
 
+	{
+		name = "Runes",
+		state = GameStore.States.STATE_NONE,
+		rookgaard = false,
+		icons = {"Category_Runes.png"},
+		offers = {
+			{name = "Health Potion", thingId = 7618, count = 125, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 4, icons = {"7618.png"}, description = ""},
+		}
+	},
+	
 	{
 		name = "Mounts",
 		state = GameStore.States.STATE_NONE,
@@ -307,28 +317,58 @@ GameStore.Categories = {
 		icons = {"Category_Outfits.png"},
 		rookgaard = false,
 		offers = {
+			{name = "Full Entrepreneur Outfit", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 750, icons = {"f472.png", "f471.png"}},
+			{name = "Entrepreneur Outfit", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 570, icons = {"f47200.png", "f47100.png"}},
+			{name = "Entrepreneur Outfit Addon 1", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f47201.png", "f47101.png"}},
+			{name = "Entrepreneur Outfit Addon 2", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, addon = 2, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f47202.png", "f47102.png"}},
+			{name = "Full Trophy Hunter Outfit", thingId = {male=957,female=958}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 870, icons = {"f957.png", "f958.png"}},
+			{name = "Trophy Hunter Outfit", thingId = {male=957,female=958}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 690, icons = {"f95700.png", "f95800.png"}},
+			{name = "Trophy Hunter Outfit Addon 1", thingId = {male=957,female=958}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f95701.png", "f95801.png"}},
+			{name = "Trophy Hunter Outfit Addon 2", thingId = {male=957,female=958}, addon = 2, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f95702.png", "f95802.png"}},
+			{name = "Full Pharaoh Outfit", thingId = {male=955,female=956}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 750, icons = {"f955.png", "f956.png"}},
+			{name = "Pharaoh Outfit", thingId = {male=955,female=956}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 570, icons = {"f95500.png", "f95600.png"}},
+			{name = "Pharaoh Outfit Addon 1", thingId = {male=955,female=956}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f95501.png", "f95601.png"}},
+			{name = "Pharaoh Outfit Addon 2", thingId = {male=955,female=956}, addon = 2, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f95502.png", "f95602.png"}},
+			{name = "Full Grove Keeper Outfit", thingId = {male=908,female=909}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 870, icons = {"f908.png", "f909.png"}},
+			{name = "Grove Keeper Outfit", thingId = {male=908,female=909}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 690, icons = {"f90800.png", "f90900.png"}},
+			{name = "Grove Keeper Outfit Addon 1", thingId = {male=908,female=909}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f90801.png", "f90901.png"}},
+			{name = "Grove Keeper Outfit Addon 2", thingId = {male=908,female=909}, addon = 2, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f90802.png", "f90902.png"}},
+			{name = "Full Champion Outfit", thingId = {male=633,female=632}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 570, icons = {"f633.png", "f632.png"}},
+			{name = "Champion Outfit", thingId = {male=633,female=632}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 390, icons = {"f63300.png", "f63200.png"}},
+			{name = "Champion Outfit Addon 1", thingId = {male=633,female=632}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f63301.png", "f63201.png"}},
+			{name = "Champion Outfit Addon 2", thingId = {male=633,female=632}, addon = 2, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f63302.png", "f63202.png"}},
+			{name = "Full Conjurer Outfit", thingId = {male=634,female=635}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 720, icons = {"f634.png", "f635.png"}},
+			{name = "Conjurer Outfit", thingId = {male=634,female=635}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 540, icons = {"f63400.png", "f63500.png"}},
+			{name = "Conjurer Outfit Addon 1", thingId = {male=634,female=635}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f63401.png", "f63501.png"}},
+			{name = "Conjurer Outfit Addon 2", thingId = {male=634,female=635}, addon = 2, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f63402.png", "f63502.png"}},
+			{name = "Full Lupine Warden Outfit", thingId = {male=899,female=900}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 840, icons = {"f899.png", "f900.png"}},
+			{name = "Lupine Warden Outfit", thingId = {male=899,female=900}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 660, icons = {"f89900.png", "f90000.png"}},
+			{name = "Lupine Warden Outfit Addon 1", thingId = {male=899,female=900}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f89901.png", "f90001.png"}},
+			{name = "Lupine Warden Outfit Addon 2", thingId = {male=899,female=900}, addon = 2, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f89902.png", "f90002.png"}},
+			
+			
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Citizen Addon", thingId = {male=128,female=136}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f128.png", "f136.png"}},
+			-- {name = "Citizen Addon", thingId = {male=128,female=136}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f128.png", "f136.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Hunter Addon", thingId = {male=129,female=137}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f129.png", "f137.png"}},
+			-- {name = "Hunter Addon", thingId = {male=129,female=137}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f129.png", "f137.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Mage Addon", thingId = {male=130,female=138}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 100, icons = {"f130.png", "f138.png"}},
+			-- {name = "Mage Addon", thingId = {male=130,female=138}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 100, icons = {"f130.png", "f138.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Knight Addon", thingId = {male=131,female=139}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f131.png", "f139.png"}},
+			-- {name = "Knight Addon", thingId = {male=131,female=139}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f131.png", "f139.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Nobleman Addon", thingId = {male=132,female=140}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 5, icons = {"f132.png", "f140.png"}},
+			-- {name = "Nobleman Addon", thingId = {male=132,female=140}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 5, icons = {"f132.png", "f140.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Summoner Addon", thingId = {male=133,female=141}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 100, icons = {"f133.png", "f141.png"}},
+			-- {name = "Summoner Addon", thingId = {male=133,female=141}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 100, icons = {"f133.png", "f141.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Warrior Addon", thingId = {male=134,female=142}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f134.png", "f142.png"}},
+			-- {name = "Warrior Addon", thingId = {male=134,female=142}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f134.png", "f142.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Barbarian Addon", thingId = {male=143,female=147}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 50, icons = {"f143.png", "f147.png"}},
+			-- {name = "Barbarian Addon", thingId = {male=143,female=147}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 50, icons = {"f143.png", "f147.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Druid Addon", thingId = {male=144,female=148}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f144.png", "f148.png"}},
+			-- {name = "Druid Addon", thingId = {male=144,female=148}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f144.png", "f148.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Wizard Addon", thingId = {male=145,female=149}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f145.png", "f149.png"}},
+			-- {name = "Wizard Addon", thingId = {male=145,female=149}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f145.png", "f149.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "oriental Addon", thingId = {male=146,female=150}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f146.png", "f150.png"}},
+			-- {name = "oriental Addon", thingId = {male=146,female=150}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f146.png", "f150.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
 			--{name = "Pirate Addon", thingId = {male=151,female=155}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f151.png", "f155.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
@@ -361,7 +401,7 @@ GameStore.Categories = {
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
 			--{name = "Insectoid Addon", thingId = {male=465,female=466}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 30, icons = {"f465.png", "f466.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Entrepreneur Addon", thingId = {male=472,female=471}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f472.png", "f471.png"}},
+			-- {name = "Entrepreneur Addon", thingId = {male=472,female=471}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f472.png", "f471.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
 			--{name = "Crystal Warlord Addon", thingId = {male=512,female=513}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 20, icons = {"f512.png", "f513.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
@@ -375,195 +415,66 @@ GameStore.Categories = {
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
 			--{name = "Glooth Engineer Addon", thingId = {male=610,female=618}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f610.png", "f618.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Jersey", thingId = {male=619,female=620}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f619.png", "f620.png"}},
+			-- {name = "Jersey", thingId = {male=619,female=620}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 60, icons = {"f619.png", "f620.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Champion Addon", thingId = {male=633,female=632}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f633.png", "f632.png"}},
+			-- {name = "Champion Addon", thingId = {male=633,female=632}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f633.png", "f632.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Conjurer Addon", thingId = {male=634,female=635}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f634.png", "f635.png"}},
+			-- {name = "Conjurer Addon", thingId = {male=634,female=635}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 60, icons = {"f634.png", "f635.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Beastmaster Addon", thingId = {male=637,female=636}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f637.png", "f636.png"}},
+			-- {name = "Beastmaster Addon", thingId = {male=637,female=636}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f637.png", "f636.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Chaos Acolyte Addon", thingId = {male=665,female=664}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f665.png", "f664.png"}},
+			-- {name = "Chaos Acolyte Addon", thingId = {male=665,female=664}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f665.png", "f664.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Death Herald Addon", thingId = {male=667,female=666}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f667.png", "f666.png"}},
+			-- {name = "Death Herald Addon", thingId = {male=667,female=666}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f667.png", "f666.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Ranger Addon", thingId = {male=684,female=683}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f684.png", "f683.png"}},
+			-- {name = "Ranger Addon", thingId = {male=684,female=683}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f684.png", "f683.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Ceremonial Garb Addon", thingId = {male=695,female=694}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f695.png", "f694.png"}},
+			-- {name = "Ceremonial Garb Addon", thingId = {male=695,female=694}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f695.png", "f694.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Puppeteer Addon", thingId = {male=697,female=696}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f697.png", "f696.png"}},
+			-- {name = "Puppeteer Addon", thingId = {male=697,female=696}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f697.png", "f696.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Spirit Caller Addon", thingId = {male=699,female=698}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f699.png", "f698.png"}},
+			-- {name = "Spirit Caller Addon", thingId = {male=699,female=698}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f699.png", "f698.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Evoker Addon", thingId = {male=725,female=724}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f725.png", "f724.png"}},
+			-- {name = "Evoker Addon", thingId = {male=725,female=724}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f725.png", "f724.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Seaweaver Addon", thingId = {male=733,female=732}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f733.png", "f732.png"}},
+			-- {name = "Seaweaver Addon", thingId = {male=733,female=732}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f733.png", "f732.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Recruiter Addon", thingId = {male=746,female=745}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f746.png", "f745.png"}},
+			-- {name = "Recruiter Addon", thingId = {male=746,female=745}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f746.png", "f745.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Sea Dog Addon", thingId = {male=750,female=749}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f750.png", "f749.png"}},
+			-- {name = "Sea Dog Addon", thingId = {male=750,female=749}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f750.png", "f749.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Royal Pumpkin Addon", thingId = {male=760,female=759}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f760.png", "f759.png"}},
+			-- {name = "Royal Pumpkin Addon", thingId = {male=760,female=759}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f760.png", "f759.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
 			--{name = "Rift Warrior Addon", thingId = {male=846,female=845}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f846.png", "f845.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Winter Warden Addon", thingId = {male=853,female=852}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f853.png", "f852.png"}},
+			-- {name = "Winter Warden Addon", thingId = {male=853,female=852}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f853.png", "f852.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Philosopher Addon", thingId = {male=874,female=873}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f874.png", "f873.png"}},
+			-- {name = "Philosopher Addon", thingId = {male=874,female=873}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f874.png", "f873.png"}},
 			-- Addon Example : thingId = lookType, addon = ( 1 = addon 1, 2 = addon 2, 3 = both addons)
-			{name = "Arena Champion Addon", thingId = {male=884,female=885}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f884.png", "f885.png"}},
+			-- {name = "Arena Champion Addon", thingId = {male=884,female=885}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 60, icons = {"f884.png", "f885.png"}},
 		}
 	},
 
 	{
-		name = "Items",
+		name = "Retro Outfit",
 		state = GameStore.States.STATE_NONE,
-		icons = {"Category_Items.png"},
 		rookgaard = false,
+		icons = {"category_retro.png"},
 		offers = {
-			{name = "crystalline token", thingId = 18423, count = 5, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"18423.png"}, description = "Become rich!"},
-			-- Item Example : thingId = itemId
-			{name = "Yalahari Mask", thingId = 9778, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Yalahari_Mask.png"}, description = "Become rich!"},
-			{name = "Golden Helmet", thingId = 2471, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 100, icons = {"Golden_Helmet.png"}, description = "Become rich!"},
-			{name = "Prismatic Helmet", thingId = 18403, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Prismatic_Helmet.png"}, description = "Become rich!"},
-			{name = "Gill Gugel", thingId = 18398, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Gill_Gugel.png"}, description = "Become rich!"},
-			{name = "Elite Draken Helmet", thingId = 12645, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Elite_Draken_Helmet.png"}, description = "Become rich!"},
-			{name = "Werewolf Helmet", thingId = 24718, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 50, icons = {"Werewolf_Helmet.png"}, description = "Become rich!"},
-			{name = "Depth Galea", thingId = 15408, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 50, icons = {"Depth_Galea.png"}, description = "Become rich!"},
-			--Armorid--
-			{name = "Demon Armor", thingId = 2494, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Demon_Armor.png"}, description = "Become rich!"},
-			{name = "Fire Born Giant Armor", thingId = 8881, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 15, icons = {"Fireborn_Giant_Armor.png"}, description = "Become rich!"},
-			{name = "Royal Draken Mail", thingId = 12642, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 15, icons = {"Royal_Draken_Mail.png"}, description = "Become rich!"},
-			{name = "Gill Coat", thingId = 18399, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Gill_Coat.png"}, description = "Become rich!"},
-			{name = "Depth Lorica", thingId = 15407, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 30, icons = {"Depth_Lorica.png"}, description = "Become rich!"},
-			{name = "Furios Frock", thingId = 21725, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 50, icons = {"Furious_Frock.png"}, description = "Become rich!"},
-			{name = "Ornate Chestplate", thingId = 15406, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 50, icons = {"Ornate_Chestplate.png"}, description = "Become rich!"},
-			{name = "Earthborn Titan Armor", thingId = 8882, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 50, icons = {"Earthborn_Titan_Armor.png"}, description = "Become rich!"},
-			{name = "Wind Born Colossus Armor", thingId = 8883, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 50, icons = {"Windborn_Colossus_Armor.png"}, description = "Become rich!"},
-			{name = "Master Acher's Armor", thingId = 8888, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 15, icons = {"Master_Archer's_Armor.png"}, description = "Become rich!"},
-			--Legsid--
-			{name = "Demon Legs", thingId = 2495, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 30, icons = {"Demon_Legs.png"}, description = "Become rich!"},
-			{name = "Grasshopper Legs", thingId = 15490, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Grasshopper_Legs.png"}, description = "Become rich!"},
-			{name = "Depth Ocrea", thingId = 15409, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Depth_Ocrea.png"}, description = "Become rich!"},
-			{name = "Primatic Legs", thingId = 18405, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Prismatic_Legs.png"}, description = "Become rich!"},
-			{name = "Gill Legs", thingId = 18400, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Gill_Legs.png"}, description = "Become rich!"},
-			{name = "Ornate Legs", thingId = 15412, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 50, icons = {"Ornate_Legs.png"}, description = "Become rich!"},
-			{name = "Dwarven Legs", thingId = 2504, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Dwarven_Legs.png"}, description = "Become rich!"},
-			{name = "Icy Culotte", thingId = 21700, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 50, icons = {"Icy_Culottes.png"}, description = "Become rich!"},
-			--Bootsid--
-			{name = "Boots of Haste", thingId = 2195, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 3, icons = {"Boots_of_Haste.png"}, description = "Become rich!"},
-			{name = "Golden Boots", thingId = 2646, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 50, icons = {"Golden_Boots.png"}, description = "Become rich!"},
-			{name = "Pair Soft Boots", thingId = 2640, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 15, icons = {"Pair_of_Soft_Boots.png"}, description = "Become rich!"},
-			--Shieldid--
-			{name = "Depth Scutum", thingId = 15411, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 3, icons = {"Depth_Scutum.png"}, description = "Become rich!"},
-			{name = "Shield of Corruption", thingId = 12644, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 30, icons = {"Shield_of_Corruption.png"}, description = "Become rich!"},
-			{name = "Prismatic Shield", thingId = 18410, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Prismatic_Shield.png"}, description = "Become rich!"},
-			{name = "Ornate Shield", thingId = 15413, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"Ornate_Shield.png"}, description = "Become rich!"},
-			{name = "Spelbook of Vigilance", thingId = 18401, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"Spellbook_of_Vigilance.png"}, description = "Become rich!"},
-			{name = "Spellbook of Ancient Arcana", thingId = 16112, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 30, icons = {"Spellbook_of_Ancient_Arcana.png"}, description = "Become rich!"},
-			{name = "Umbral spellbook", thingId = 22423, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 15, icons = {"Umbral_Spellbook.png"}, description = "Become rich!"},
-			{name = "Umbral Master Spellbook", thingId = 22424, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 60, icons = {"Umbral_Master_Spellbook.png"}, description = "Become rich!"},
-			{name = "Great Shield", thingId = 2522, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 80, icons = {"Great_Shield.png"}, description = "Become rich!"},
-			{name = "Blessed Shield", thingId = 2523, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 100, icons = {"Blessed_Shield.png"}, description = "Become rich!"},
-			{name = "Gold Pounch", state = GameStore.States.STATE_NEW, thingId = 26377, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 450, icons = {"Product_MagicCoinPurse.png"}, description="This item can't be moved from Store Inbox.\nYou can only put inside money.\nWarning: this item drop when you die red or black skull!"},
-			{name = "Blood Herb", thingId = 2798, count = 10, type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, price = 30, icons = {"BloodHerb.png"}, description = "Become rich!"}
+			{name = "Retro Citizen", state = GameStore.States.STATE_NEW, thingId = {male=974,female=975}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 870, icons = {"f974.png", "f975.png"}},
+			{name = "Retro Hunter", state = GameStore.States.STATE_NEW, thingId = {male=972,female=973}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 870, icons = {"f972.png", "f973.png"}},
+			{name = "Retro Knight", state = GameStore.States.STATE_NEW, thingId = {male=970,female=971}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 870, icons = {"f970.png", "f971.png"}},
+			{name = "Retro Wizard", state = GameStore.States.STATE_NEW, thingId = {male=968,female=969}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 870, icons = {"f968.png", "f969.png"}},
+			{name = "Retro Noblewoman", state = GameStore.States.STATE_NEW, thingId = {male=966,female=967}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 870, icons = {"f966.png", "f967.png"}},
+			{name = "Retro Summoner", state = GameStore.States.STATE_NEW, thingId = {male=964,female=965}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 870, icons = {"f964.png", "f965.png"}},
+			{name = "Retro Warrior", state = GameStore.States.STATE_NEW, thingId = {male=962,female=963}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 870, icons = {"f962.png", "f963.png"}},
 		}
 	},
-
-	{
-		name = "Items for Sorcerers",
-		state = GameStore.States.STATE_NONE,
-		icons = {"Category_Sorc.png"},
-		offers = {
-			-- Item Example : thingId = itemId
-			{name = "Thundermind Raiment", thingId = 25192, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25192.png"}, description = "Become rich!"},
-			{name = "Frostmind Raiment", thingId = 25193, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25193.png"}, description = "Become rich!"},
-			{name = "Earthmind Raiment", thingId = 25191, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25191.png"}, description = "Become rich!"},
-			{name = "Firemind Raiment", thingId = 25190, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25190.png"}, description = "Become rich!"},
-			{name = "Wand of Defiance", thingId = 18390, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18390.png"}, description = "Become rich!"},
-			{name = "Spelbook of Dark Mysteries", thingId = 8918, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"8918.png"}, description = "Become rich!"},
-			{name = "Wand of Everblazing", thingId = 18409, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18409.png"}, description = "Become rich!"},
-		}
-	},
-
-	{
-		name = "Items for Knights",
-		state = GameStore.States.STATE_NONE,
-		icons = {"Category_Knight.png"},
-		rookgaard = false,
-		offers = {
-			-- Item Example : thingId = itemId
-			{name = "Earthmind Raiment", thingId = 25191, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25191.png"}, description = "Become rich!"},
-			{name = "Earthheart Platemail", thingId = 25179, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25179.png"}, description = "Become rich!"},
-			{name = "Earthheart Hauberk", thingId = 25178, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25178.png"}, description = "Become rich!"},
-			{name = "Frostheart Platemail", thingId = 25185, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25185.png"}, description = "Become rich!"},
-			{name = "Frostheart Hauberk", thingId = 25184, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25184.png"}, description = "Become rich!"},
-			{name = "Frostheart Cuirass", thingId = 25183, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25183.png"}, description = "Become rich!"},
-			{name = "Thunderheart Platemail", thingId = 25182, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25182.png"}, description = "Become rich!"},
-			{name = "Thunderheart Hauberk", thingId = 25181, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25181.png"}, description = "Become rich!"},
-			{name = "Thunderheart Cuirass", thingId = 25180, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25180.png"}, description = "Become rich!"},
-			{name = "Fireheart Platemail", thingId = 25176, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25176.png"}, description = "Become rich!"},
-			{name = "Fireheart Hauberk", thingId = 25175, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25175.png"}, description = "Become rich!"},
-			{name = "Fireheart Cuirass", thingId = 25174, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25174.png"}, description = "Become rich!"},
-			{name = "Shiny Blade", thingId = 18465, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 20, icons = {"18465.png"}, description = "Become rich!"},
-			{name = "Crystaline Axe ", thingId = 18451, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 20, icons = {"18451.png"}, description = "Become rich!"},
-			{name = "Mycological Mace", thingId = 18452, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 20, icons = {"18452.png"}, description = "Become rich!"},
-			{name = "Umbral Blade", thingId = 22399, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 25, icons = {"22399.png"}, description = "Become rich!"},
-			{name = "Umbral Masterblade", thingId = 22400, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 60, icons = {"22400.png"}, description = "Become rich!"},
-			{name = "umbral Slayer", thingId = 22402, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 25, icons = {"22402.png"}, description = "Become rich!"},
-			{name = "Umbral Hammer", thingId = 22414, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 25, icons = {"22414.png"}, description = "Become rich!"},
-			{name = "Umbral Master Hammer", thingId = 22415, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 60, icons = {"22415.png"}, description = "Become rich!"},
-			{name = "Umbral Mace", thingId = 22411, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 25, icons = {"22411.png"}, description = "Become rich!"},
-			{name = "Umbral master Chopper", thingId = 22409, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 60, icons = {"22409.png"}, description = "Become rich!"},
-			{name = "Umbral Mater Axe", thingId = 22406, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 60, icons = {"22406.png"}, description = "Become rich!"},
-			{name = "Umbral Axe", thingId = 22405, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 25, icons = {"22405.png"}, description = "Become rich!"},
-			{name = "Umbral Master Slayer", thingId = 22403, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 60, icons = {"22403.png"}, description = "Become rich!"},
-			{name = "Umbral Chopper", thingId = 22408, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 25, icons = {"22408.png"}, description = "Become rich!"},
-		
-		}
-	},
-
-	{
-		name = "Items for Paladins",
-		state = GameStore.States.STATE_NONE,
-		icons = {"Category_Pally.png"},
-		rookgaard = false,
-		offers = {
-			-- Item Example : thingId = itemId
-			{name = "Firesoul Tabard", thingId = 25186, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25186.png"}, description = "Become rich!"},
-			{name = "Frostsoul Tabard", thingId = 25189, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25189.png"}, description = "Become rich!"},
-			{name = "Thundersoul Tabard", thingId = 25188, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25188.png"}, description = "Become rich!"},
-			{name = "Earthsoul Tabard", thingId = 25187, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25187.png"}, description = "Become rich!"},
-			{name = "Crystal Crossbow", thingId = 18453, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 10, icons = {"18453.png"}, description = "Become rich!"},
-			{name = "Mycological Bow", thingId = 18454, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 20, icons = {"18454.png"}, description = "Become rich!"},
-			{name = "Umbral bow", thingId = 22417, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 25, icons = {"22417.png"}, description = "Become rich!"},
-			{name = "Umbral Master bow", thingId = 22418, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 60, icons = {"22418.png"}, description = "Become rich!"},
-			{name = "Umbral Crossbow", thingId = 22420, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 25, icons = {"22420.png"}, description = "Become rich!"},
-			{name = "Umbral Master Crossbow", thingId = 22421, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 60, icons = {"22421.png"}, description = "Become rich!"},
-		}
-	},
-
-	{
-		name = "Items for Druids",
-		state = GameStore.States.STATE_NONE,
-		icons = {"Category_Druid.png"},
-		rookgaard = false,
-		offers = {
-			-- Item Example : thingId = itemId
-			{name = "Thundermind Raiment", thingId = 25192, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25192.png"}, description = "Become rich!"},
-			{name = "Frostmind Raiment", thingId = 25193, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25193.png"}, description = "Become rich!"},
-			{name = "Earthmind Raiment", thingId = 25191, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25191.png"}, description = "Become rich!"},
-			{name = "Firemind Raiment", thingId = 25190, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 90, icons = {"25190.png"}, description = "Become rich!"},
-			{name = "Glacial Rod", thingId = 18412, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18412.png"}, description = "Become rich!"},
-			{name = "Muck Rod", thingId = 18411, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"18411.png"}, description = "Become rich!"},
-			{name = "Spelbook of Dark Mysteries", thingId = 8918, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 5, icons = {"8918.png"}, description = "Become rich!"},
-		}
-	},
-
+	
 	{
 		name = "House Equipment",
-		state = GameStore.States.STATE_NEW,
-		icons = {"Category_House_Equipment.png"},
+		state = GameStore.States.STATE_NONE,
+		icons = {"Category_HouseEquipment.png"},
 		rookgaard = false,
 		offers = {
 			-- Item Example : thingId = itemId
@@ -606,45 +517,32 @@ GameStore.Categories = {
 			{name = "Brocade Tapestry", thingId = 26381, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_HOUSE, price = 25, icons = {"Product_HouseEquipment_Tapestry_06.png"}, description = "Become rich!"},
 			}
 	},
+
 	{
-		name = "Blessings",
-		state = GameStore.States.STATE_NEW,
-		icons = {"Category_Blessings.png"},
-		rookgaard = false,
-		offers = {
-			-- NameChange example
-			{name = "Twist of Fate", thingId = 1, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Wisdom.png"}},
-			{name = "The Wisdom of Solitude", thingId = 2, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Wisdom.png"}},
-			{name = "The Spark of the Phoenix", thingId = 3, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 20, icons = {"Product_Wisdom.png"}},
-			{name = "The Fire of the Suns", thingId = 4, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Wisdom.png"}},
-			{name = "The Spiritual Shielding", thingId = 5, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Wisdom.png"}},
-			{name = "The Embrace of Tibia", thingId = 6, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Wisdom.png"}},
-			{name = "The Heart of the Mountain", thingId = 7, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Wisdom.png"}},
-			{name = "Blood of the Mountain", thingId = 8, type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS, price = 15, icons = {"Product_Wisdom.png"}},
-			-- Promotion example
-			--{name = "First Promotion", thingId = 1--[[ed/ms/rp/ek]], type = GameStore.OfferTypes.OFFER_TYPE_PROMOTION, price = 100, icons = {"Product_FirstPromotion.png"}}
-		}
-	},
-	{
-		name = "Extra Services",
+		name = "Xp Boosts",
 		state = GameStore.States.STATE_NONE,
-		icons = {"Category_ExtraServices.png"},
 		rookgaard = false,
+		icons = {"XP_Boost_Icon.png"},
 		offers = {
-			-- NameChange example
-			{name = "Character Name Change", type = GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE, price = 20, icons = {"Product_CharacterNameChange.png"}},
-			-- Sexchange example
-			{name = "Character Sex Change", type = GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE, price = 20, icons = {"Product_CharacterSexChange.png"}},
-			-- Services Pay to win example
-			{name = "XP Boost 50%", state = GameStore.States.STATE_NEW, type = GameStore.OfferTypes.OFFER_TYPE_EXPBOOST, price = 15, icons = {"xpboost.png"}, description="50% XP Boost for 1 hour!"},
-			{name = "Prey Bonus Reroll", state = GameStore.States.STATE_NEW, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_PREYBONUS, price = 5, icons = {"Product_UsefulThings_PreyBonusReroll.png"}},
-			{name = "5x Prey Bonus Reroll", state = GameStore.States.STATE_NEW, count = 5, type = GameStore.OfferTypes.OFFER_TYPE_PREYBONUS, price = 25, icons = {"Product_UsefulThings_PreyBonusReroll.png"}},
-			{name = "Permanent Prey Slot", state = GameStore.States.STATE_NEW, type = GameStore.OfferTypes.OFFER_TYPE_PREYSLOT, price = 450, icons = {"Product_UsefulThings_PermanentPreySlot.png"}},
-			{name = "Temple Teleport", type = GameStore.OfferTypes.OFFER_TYPE_TEMPLE, price = 25, icons = {"Product_Transportation_TempleTeleport.png"}},
-			-- Promotion example
-			--{name = "First Promotion", thingId = 1--[[ed/ms/rp/ek]], type = GameStore.OfferTypes.OFFER_TYPE_PROMOTION, price = 100, icons = {"Product_FirstPromotion.png"}}
+			{name = "XP Boost 50%", state = GameStore.States.STATE_NEW, type = GameStore.OfferTypes.OFFER_TYPE_EXPBOOST, price = 30, icons = {"Product_XpBoost.png"}, description="50% XP Boost for 1 hour!"},
 		}
 	},
+	
+	{
+		name = "Useful Things",
+		state = GameStore.States.STATE_NONE,
+		rookgaard = false,
+		icons = {"Category_Convenience.png"},
+		offers = {
+			{name = "Prey Bonus Reroll", state = GameStore.States.STATE_NEW, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_PREYBONUS, price = 5, icons = {"Prey_Reroll_Icon.png"}},
+			{name = "5x Prey Bonus Reroll", state = GameStore.States.STATE_NEW, count = 5, type = GameStore.OfferTypes.OFFER_TYPE_PREYBONUS, price = 25, icons = {"Prey_Reroll_Icon.png"}},
+			{name = "Permanent Prey Slot", state = GameStore.States.STATE_NEW, type = GameStore.OfferTypes.OFFER_TYPE_PREYSLOT, price = 450, icons = {"Prey_Slot_Icon.png"}},
+			{name = "Temple Teleport", type = GameStore.OfferTypes.OFFER_TYPE_TEMPLE, price = 25, icons = {"Product_Transportation_TempleTeleport.png"}},
+			{name = "Gold Pouch", thingId = 26377, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 900, icons = {"26377.png"}, description = "With Gold Pounch you can carry the amount of gold without having to keep many knapsacks in the backpack, this product allows you to be charged as much gold as your ability allows."},
+			{name = "Gold Converter", thingId = 26378, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 900, icons = {"26378.png"}, description = "With Gold Converter you can transform packs of 100 gold coins or platinum coins into 1 platinum or coin coin backpack, respectively."},
+		}
+	},
+	
 }
 
 -- For Explanation and information
