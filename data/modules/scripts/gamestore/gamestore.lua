@@ -14,6 +14,10 @@ GameStore.Categories = {
 			{name = "Entrepreneur Outfit", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 570, icons = {"f47200.png", "f47100.png"}},
 			{name = "Entrepreneur Outfit Addon 1", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f47201.png", "f47101.png"}},
 			{name = "Entrepreneur Outfit Addon 2", state = GameStore.States.STATE_NEW, thingId = {male=472,female=471}, addon = 1, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON, price = 120, icons = {"f47202.png", "f47102.png"}},
+			{name = "Full New Outfit", state = GameStore.States.STATE_NEW, thingId = {male=1021,female=1020}, addon = 3, type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT, price = 750, icons = {"f1021.png", "f1020.png"}},
+			{name = "New Mount", thingId = 113, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 30, icons = {"o113.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
+			{name = "New Mount", thingId = 114, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 30, icons = {"o113.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
+			{name = "New Mount", thingId = 115, type = GameStore.OfferTypes.OFFER_TYPE_MOUNT, price = 30, icons = {"o113.png"}, description = "Here you can purchase the Mount  for your character. Riding on a mount is not only cool, but also gives your character a speed boost."},
 		}
 	},
 	
